@@ -1,19 +1,5 @@
 function mylog(v) { divStats.innerHTML += (v + "<br>"); }
 
-function resetImgs() {
-  idxSelect = -99;
-  voteAllowed = true;
-  imgLeftE.className  = "imgNormal";
-  imgRightE.className = "imgNormal";
-}
-
-function resetPool() { // Once all images have been shown, start over
-  resetImgs();
-   // Slice() forces copy by value (doesn't just create a reference)
-  fnPool  = img_fn.slice();
-  idxPool = img_idx.slice();
-  if (myChartObj) { delete myChartObj; }
-}
 
 function global_init() {
   // Don't use "var" in this function; we need to init global vars
@@ -39,6 +25,7 @@ function global_init() {
 
   resetPool();
 
+
   imgLeftE.addEventListener( "click", selectImg);
   imgRightE.addEventListener("click", selectImg);
   imgLeftE.addEventListener( "mouseover", selectImg);
@@ -61,7 +48,7 @@ function showRandImg(imgE) {
     maxIdx = fnPool.length - 1;
   }
 
-  var idx = getRandIntOnRange(0, maxIdx);
+var idx = getRandIntOnRange(0, maxIdx);
   imgE.src = imgDir + fnPool[idx];
    // Extend object to have an property that holds idx w.r.t. original fn array
   imgE.idxOrig = idxPool[idx];
@@ -88,6 +75,23 @@ function recordVote() {
     btnVote.style.visibility = "hidden";
     showChart();
   }
+}
+
+
+function resetImgs() {
+  idxSelect = -99;
+  voteAllowed = true;
+  imgLeftE.className  = "imgNormal";
+  imgRightE.className = "imgNormal";
+}
+
+
+function resetPool() { // Once all images have been shown, start over
+  resetImgs();
+   // Slice() forces copy by value (doesn't just create a reference)
+  fnPool  = img_fn.slice();
+  idxPool = img_idx.slice();
+  if (myChartObj) { delete myChartObj; }
 }
 
 function showChart() {
@@ -145,7 +149,7 @@ function showChart() {
 }
 
 function newPair() {
-  console.log("newPair()");  
+  console.log("newPair()");
   btnNew.style.visibility = "hidden";
   btnVote.style.visibility = "visible";
 
@@ -158,7 +162,7 @@ function newPair() {
 
 
   if (fnPool.length < 2) {
-    console.log("Not enough images left. Resetting pool");  
+    console.log("Not enough images left. Resetting pool");
     resetPool();
   }
 

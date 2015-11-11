@@ -1,13 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Passion+One);
 /* @import url(https://fonts.googleapis.com/css?family=Muli); */
 
+
+
+
 body {
-  font-family:'Passion One', cursive;
-  color: #fff;
-  background-color: #383010;
+  font-family: 'Roboto', sans-serif;
+  color: #506BFF;
+  background-color: #FFF4D2;
 }
 
-p { font-size: 1.2rem }
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #2348FF;
+  text-decoration: underline;
+}
+
+p {
+  margin: 20px;
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+a{
+  margin: 20px;
+  padding: 5px;
+}
 
 img {
   max-width:  350px;
@@ -29,6 +49,19 @@ img {
 
 .imgLeft = { float: left; }
 
+#btnVote:hover{
+  background-color: #7982B2;
+}
+
+#btnNew:hover {
+  background-color: #7982B2;
+}
+
+#divStats {
+  margin: 30px;
+  padding: 30px;
+}
+
 #btnVote{
   font-size: 2rem;
   margin-top: 10px;
@@ -36,6 +69,7 @@ img {
 }
 
 #btnNew{
-  display: none;
-  visibility: hidden;
+  font-size: 2rem;
+  margin-top: 10px;
+  style: inset;
 }
