@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kosher Tracker: Do you know Kosher Food?</title>
+  <link rel="stylesheet" href="style.css"></link>
+</head>
+
+<body>
+<h1>Kosher Tracker: Select what is Kosher!</h1>
+
+<p>Kosher food refers to how particular food is processed, sold, cooked or eaten. Kosher food always meets requirements of Jewish law, a law that has been in effect for over 4,000 years!</p>
+
+<p>Please highlight one of the folowing two images, then click the
+&quot;Vote&quot; button</p>
+
+<div id="divImgs">
+  <div><img id="imgLeft" class="imgNormal">
+       <img id="imgRight" class="imgNormal">
+  </div>
+  <button id="btnVote">Vote</button>
+  <br><button id="btnNew">New pair</button>
+</div>
+
+<div id="divStats">
+  <canvas id="myChart" width="600" height="300"> </canvas>
+</div>
+
+</body>
+
+<script src="vote.js"></script>
+<script src="Chart.min.js"></script>
+</html>
