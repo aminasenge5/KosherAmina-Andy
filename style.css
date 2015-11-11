@@ -34,6 +34,8 @@ img {
   max-height: 350px;
   margin: 2px;
   vertical-align: middle;
+  border-radius: 55%
+
 }
 
 #divImgs{
