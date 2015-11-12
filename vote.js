@@ -1,10 +1,25 @@
 function mylog(v) { divStats.innerHTML += (v + "<br>"); }
 
+function resetImgs() {
+  idxSelect = -99;
+  voteAllowed = true;
+  imgLeftE.className  = "imgNormal";
+  imgRightE.className = "imgNormal";
+}
+
+function resetPool() { // Once all images have been shown, start over
+  resetImgs();
+   // Slice() forces copy by value (doesn't just create a reference)
+  fnPool  = img_fn.slice();
+  idxPool = img_idx.slice();
+  if (myChartObj) { delete myChartObj; }
+}
 
 function global_init() {
   // Don't use "var" in this function; we need to init global vars
 
   img_fn = ["fish1.jpg", "fish2.jpg", "fish3.jpg", "fish4.jpg", "fish5.jpg", "k1.jpg", "k2.jpg", "k3.jpg", "k4.jpg", "k5.jpg", "nk1.jpg", "nk2.jpg", "nk3.jpg", "nk4.jpg", "nk5.jpg", "nk6.jpg", "nk7.jpg", "nk8.jpg", "nk9.jpg", "nk10.jpg"];
+  
   // Only 10 images here. Add at least 10 more images of your own!
 
   // To track which imgs' indices of the original array have already by shown
@@ -24,7 +39,6 @@ function global_init() {
   myChartObj = 0;
 
   resetPool();
-
 
   imgLeftE.addEventListener( "click", selectImg);
   imgRightE.addEventListener("click", selectImg);
@@ -48,7 +62,7 @@ function showRandImg(imgE) {
     maxIdx = fnPool.length - 1;
   }
 
-var idx = getRandIntOnRange(0, maxIdx);
+  var idx = getRandIntOnRange(0, maxIdx);
   imgE.src = imgDir + fnPool[idx];
    // Extend object to have an property that holds idx w.r.t. original fn array
   imgE.idxOrig = idxPool[idx];
@@ -75,23 +89,6 @@ function recordVote() {
     btnVote.style.visibility = "hidden";
     showChart();
   }
-}
-
-
-function resetImgs() {
-  idxSelect = -99;
-  voteAllowed = true;
-  imgLeftE.className  = "imgNormal";
-  imgRightE.className = "imgNormal";
-}
-
-
-function resetPool() { // Once all images have been shown, start over
-  resetImgs();
-   // Slice() forces copy by value (doesn't just create a reference)
-  fnPool  = img_fn.slice();
-  idxPool = img_idx.slice();
-  if (myChartObj) { delete myChartObj; }
 }
 
 function showChart() {
@@ -149,7 +146,7 @@ function showChart() {
 }
 
 function newPair() {
-  console.log("newPair()");
+  console.log("newPair()");  
   btnNew.style.visibility = "hidden";
   btnVote.style.visibility = "visible";
 
@@ -162,7 +159,7 @@ function newPair() {
 
 
   if (fnPool.length < 2) {
-    console.log("Not enough images left. Resetting pool");
+    console.log("Not enough images left. Resetting pool");  
     resetPool();
   }
 
