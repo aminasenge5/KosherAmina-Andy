@@ -41,6 +41,26 @@ img {
 
 }
 
+#links {
+
+  color:#E8C50C;
+
+}
+
+#links:visited {
+
+  color:#95E8B6;
+  
+}
+
+#links:hover{
+
+  color:#fff;
+  
+}
+
+
+
 #divImgs{
  display: block;
  text-align: center;
